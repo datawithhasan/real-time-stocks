@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# dbt artifacts (re-generated)
+dbt_packages/
+target/
+logs/
+
+# environment variables
+.env
+.env.*
+
+# Airflow logs/volumes (adjust if needed)
+airflow/logs/
+

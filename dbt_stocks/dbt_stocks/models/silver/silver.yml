@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: slv_stock_quotes
+    description: "Silver layer: flattened + typed quote records (deduplicated)."
+    columns:
+      - name: symbol
+        description: "Ticker symbol (e.g., AAPL)."
+        tests: [not_null]
+      - name: market_ts
+        description: "Market timestamp (converted from epoch)."
+        tests: [not_null]
+      - name: fetched_ts
+        description: "Fetch timestamp (converted from epoch)."
+        tests: [not_null]
+      - name: close_price
+        description: "Close price."
+        tests: [not_null]
+      - name: open_price
+        description: "Open price."
+      - name: high_price
+        description: "High price."
+      - name: low_price
+        description: "Low price."
+      - name: prev_close_price
+        description: "Previous close price."
+      - name: change_abs
+        description: "Absolute change from prev close."
+      - name: change_pct
+        description: "Percent change from prev close."
+      - name: ingested_at
+        description: "Ingestion timestamp."
+      - name: source
+        description: "Upstream source."
+      - name: source_key
+        description: "MinIO object path/key."
+      - name: load_run_id
+        description: "Airflow run id."

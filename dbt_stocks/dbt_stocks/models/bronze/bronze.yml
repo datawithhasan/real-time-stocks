@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: brz_stock_quotes_raw
+    description: "Bronze view over the raw source table."

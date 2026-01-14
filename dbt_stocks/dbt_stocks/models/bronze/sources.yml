@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: raw_stocks
+    description: "Raw stock quotes ingested into Snowflake BRONZE layer (JSON payload from MinIO)."
+    database: REAL_TIME_STOCKS
+    schema: BRONZE
+
+    tables:
+      - name: STOCK_QUOTES_RAW
+        description: "Raw JSON quotes (VARIANT) plus ingestion metadata."
+        columns:
+          - name: RAW
+            description: "Original JSON payload from API (VARIANT)."
+          - name: INGESTED_AT
+            description: "Timestamp when this row was inserted."
+          - name: SOURCE
+            description: "Upstream source name (e.g., minio)."
+          - name: SOURCE_KEY
+            description: "Unique file/object identifier to prevent duplicates."
+          - name: LOAD_RUN_ID
+            description: "Airflow run id for traceability."
