@@ -1,7 +1,7 @@
 dbt_stocks:
-  target: prod
+  target: dev
   outputs:
-    prod:
+    dev:
       type: snowflake
       account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
       user: "{{ env_var('SNOWFLAKE_USER') }}"
@@ -11,5 +11,3 @@ dbt_stocks:
       database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
       schema: PUBLIC
       threads: 4
-      client_session_keep_alive: false
-
